@@ -1,1 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLB KIROS GROUP - The Intelligence Collective</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&v=20250712" rel="stylesheet">
+    <style id="fresh-styles-20250712">
+        /* COMPLETELY FRESH CSS - NO CACHE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2563eb;
+            --accent: #3b82f6;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .loader-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .loader-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #2563EB 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .loader-icon::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, #FCD34D, #F59E0B);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.6);
+        }
+
+        .loader-letter {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .loader-text {
+            font-size: 1.1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            margin: 2rem auto 0;
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            height: 100%;
+            background: var(--white);
+            width: 0;
+            animation: loading 2s ease forwards;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1.5rem 0 0.5rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #2563EB 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 3px 8px rgba(79, 70, 229, 0.25);
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(135deg, #FCD34D, #F59E0B);
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(245, 158, 11, 0.4);
+        }
+
+        .logo-letter {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1E40AF;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: #9CA3AF;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 2px;
+            line-height: 1;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section - SOLUTION 5 IMPLEMENTATION */
+        .hero {
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* SOLUTION 5: Modern Typography Focus - Clean Dark Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.55); /* Perfect balance - not too heavy */
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s ease 0.5s forwards;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* SOLUTION 5: Enhanced Typography */
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            font-weight: 400;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1E40AF;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            background: white;
+            color: #1E40AF;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateY(-2px);
+            border-color: white;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            position: relative;
+            opacity: 0;
+            transform: translateX(40px);
+            animation: fadeInRight 1s ease 0.7s forwards;
+        }
+
+        .hero-visual {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80') center/cover;
+            opacity: 0.8;
+            border-radius: 20px;
+        }
+
+        .visual-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37,99,235,0.8), rgba(59,130,246,0.6));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-text {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-visual {
+            width: 100%;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80') center/cover;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(59,130,246,0.1));
+            border-radius: 20px;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 120px 0;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .leader-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .leader-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.8), rgba(59,130,246,0.6));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clarence-bg {
+            background: url('https://github.com/clarence1212/images/raw/main/clarence-grp.png') center/cover;
+            position: relative;
+        }
+
+        .clarence-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37,99,235,0.3), rgba(59,130,246,0.2));
+        }
+
+        .elias-bg {
+            background: url('https://github.com/clarence1212/images/raw/main/eck-logo.png') center/cover;
+            position: relative;
+        }
+
+        .elias-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(37,99,235,0.2));
+        }
+
+        .leader-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem;
+            color: var(--white);
+        }
+
+        .leader-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-role {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .leader-info {
+            padding: 2rem;
+        }
+
+        .leader-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .leader-bio {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .credentials h4 {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .credentials p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .leader-links {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .leader-website-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--secondary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .leader-website-link:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .leader-website-link.substack {
+            border-color: #FF6719;
+            color: #FF6719;
+        }
+
+        .leader-website-link.substack:hover {
+            background: #FF6719;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 103, 25, 0.3);
+        }
+
+        .link-icon {
+            font-size: 1rem;
+        }
+
+        /* Books Section */
+        .books {
+            padding: 120px 0;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .books .section-title {
+            color: var(--white);
+        }
+
+        .books .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .book-series {
+            margin-top: 4rem;
+        }
+
+        .series-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .book-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .book-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.1);
+        }
+
+        .book-title {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-description {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .book-expand-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .book-item:hover .book-expand-icon {
+            color: rgba(255,255,255,0.8);
+            transform: scale(1.1);
+        }
+
+        /* Book Summary Modal */
+        .book-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 2rem;
+        }
+
+        .book-modal.active {
+            display: flex;
+        }
+
+        .book-modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 900px;
+            max-height: 80vh;
+            width: 100%;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        .book-modal-header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 2rem;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .book-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .book-modal-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        .book-modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            padding-right: 3rem;
+        }
+
+        .book-modal-category {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .book-modal-body {
+            padding: 2rem;
+        }
+
+        .book-summary-section {
+            margin-bottom: 2rem;
+        }
+
+        .book-summary-section h4 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+
+        .book-summary-section p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .book-themes-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .book-themes-list li {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .book-themes-list li::before {
+            content: '→';
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .book-themes-list strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .book-impact-stats {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .book-impact-stats h5 {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-impact-stats p {
+            color: var(--gray);
+            margin: 0;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .book-modal {
+                padding: 1rem;
+            }
+            
+            .book-modal-content {
+                max-height: 90vh;
+            }
+            
+            .book-modal-header {
+                padding: 1.5rem;
+            }
+            
+            .book-modal-title {
+                font-size: 1.4rem;
+                padding-right: 2.5rem;
+            }
+            
+            .book-modal-body {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(37,99,235,0.15);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-email {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .footer-author {
+            margin-top: 1rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 600;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes loading {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-content,
+            .about-content,
+            .leadership-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .leader-links {
+                flex-direction: column;
+            }
+
+            .leader-website-link {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        /* Floating Elements - DISABLED */
+        .floating-elements {
+            display: none !important;
+        }
+
+        .floating-circle {
+            display: none !important;
+        }
+
+        .circle-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .circle-3 {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="loader-icon">
+                    <span class="loader-letter">G</span>
+                </div>
+                GLB KIROS GROUP
+            </div>
+            <div class="loader-text">The Intelligence Collective</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span class="logo-letter">G</span>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">GLB KIROS GROUP</div>
+                    <div class="logo-subtitle">The Intelligence Collective</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#books">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section - SOLUTION 5 IMPLEMENTED -->
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-circle circle-1"></div>
+            <div class="floating-circle circle-2"></div>
+            <div class="floating-circle circle-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">Where Timing Meets Intelligence</div>
+                    <h1>Orchestrating the Future of Intelligence</h1>
+                    <div class="hero-subtitle">The Intelligence Collective</div>
+                    <p>GLB KIROS GROUP operates as The Intelligence Collective - where timing meets intelligence. KIROS Intelligence Group delivers four specialized divisions spanning strategic AI consulting, breakthrough innovation, active venture building, and growth capital investment across Asia-Pacific markets.</p>
+                    <div class="cta-group">
+                        <a href="#contact" class="btn btn-primary">Strategic Partnership</a>
+                        <a href="#about" class="btn btn-secondary">Explore Ecosystem</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">$130M+</span>
+                            <div class="stat-label">Portfolio Value</div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">45%+</span>
+                            <div class="stat-label">Portfolio IRR</div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <div class="stat-label">Companies</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content scroll-reveal">
+                <div class="about-text">
+                    <h2>The Intelligence Collective</h2>
+                    <p>KIROS Intelligence Group uniquely combines the strategic rigor of tier-one consulting, the innovation power of advanced research labs, the execution excellence of venture studios, and the investment expertise of growth capital funds.</p>
+                    <p>Ideas flow seamlessly from strategic insight through breakthrough research, active company building, to scaled market success. With seamless integration from strategy through research, building, and scaling, ideas move faster from concept to market through our integrated platform.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h4>Strategic Excellence</h4>
+                            <p>Advanced research expertise meets world-class business execution</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Proven Results</h4>
+                            <p>$130M+ portfolio value with 45%+ IRR across 8 companies</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Regional Leadership</h4>
+                            <p>21+ years APAC expertise with global partnerships</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Integrated Platform</h4>
+                            <p>From vision to execution across the intelligence lifecycle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-visual"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="leadership">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Dual Leadership Architecture</h2>
+                <p class="section-subtitle">Where execution excellence meets strategic intelligence vision to create The Intelligence Collective</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leader-card scroll-reveal">
+                    <div class="leader-image clarence-bg">
+                        <div class="leader-overlay">
+                            <div class="leader-name">Dr. Clarence Tan, PhD</div>
+                            <div class="leader-role">Founder & Chief Executive Officer</div>
+                        </div>
+                    </div>
+                    <div class="leader-info">
+                        <h3>The Builder & Executor</h3>
+                        <p class="leader-bio">Dr. Tan represents the execution foundation of The Intelligence Collective, combining deep AI research expertise with proven venture building capabilities. With 21+ years of experience across Asia-Pacific markets, he bridges the critical gap between academic AI research and commercial success. His approach integrates scientific rigor with entrepreneurial agility, creating sustainable enterprises that advance both technological innovation and market value.</p>
+                        <p class="leader-bio">As founder and CEO, Dr. Tan has successfully built GLB Group APAC into a comprehensive strategic intelligence platform, demonstrating his unique ability to translate complex AI concepts into actionable business strategies. His track record includes leading digital transformation initiatives across Fortune 500 companies, establishing innovation labs, and guiding portfolio companies to successful exits.</p>
+                        <div class="credentials">
+                            <h4>Academic & Professional Credentials</h4>
+                            <p>PhD in AI and Neuromorphic Computing, MBA in International Finance, MPA in Professional Accounting and Finance, with advanced studies in computer engineering and AI for healthcare applications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="leader-card scroll-reveal">
+                    <div class="leader-image elias-bg">
+                        <div class="leader-overlay">
+                            <div class="leader-name">Elias Kairos Chen</div>
+                            <div class="leader-role">Chief Intelligence Architect & Author</div>
+                        </div>
+                    </div>
+                    <div class="leader-info">
+                        <h3>The Visionary & Strategic Architect</h3>
+                        <p class="leader-bio">Elias Kairos Chen embodies the strategic intelligence vision that guides The Intelligence Collective's forward-looking initiatives. As a thought leader and author, he develops comprehensive frameworks for understanding and navigating AI's transformative impact across industries, organizations, and society. Through EliasKairos-Chen.com and his published works, he provides strategic guidance for organizations, governments, and communities navigating intelligent transformation.</p>
+                        <div class="credentials">
+                            <h4>Strategic Intelligence Focus</h4>
+                            <p>Author of "Framing the Future of Intelligence" series, strategic advisory on AI transformation, and thought leadership on ensuring AI development serves human flourishing.</p>
+                        </div>
+                        <div class="leader-links">
+                            <a href="https://dreliaskairos-chen.com" class="leader-website-link" target="_blank">
+                                <span class="link-icon">🌐</span>
+                                Visit EliasKairos-Chen.com
+                            </a>
+                            <a href="https://eliaskairos-chen.com" class="leader-website-link substack" target="_blank">
+                                <span class="link-icon">📚</span>
+                                Read Weekly Book Chapters on Substack
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="books">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Framing the Future of Intelligence</h2>
+                <p class="section-subtitle">Comprehensive book series exploring how AI will completely reframe industries, finance, and the global economy</p>
+            </div>
+            <div class="book-series">
+                <div class="series-category scroll-reveal">
+                    <h3 class="category-title">Core Industry Transformation Volumes</h3>
+                    <div class="books-grid">
+                        <div class="book-item" onclick="openBookModal('healthcare')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">The AI Healthcare Revolution: Reframing Medicine for the Cognitive Era</h4>
+                            <p class="book-description">Clinical AI, diagnostic transformation, personalized medicine, regulatory frameworks</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('finance')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Financial Intelligence: How AI is Rewriting Banking, Investment, and Economic Systems</h4>
+                            <p class="book-description">Fintech evolution, algorithmic trading, central bank digital currencies, financial inclusion</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('manufacturing')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Manufacturing Minds: The Industrial AI Transformation</h4>
+                            <p class="book-description">Industry 4.0, smart factories, supply chain intelligence, predictive maintenance</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('retail')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Retail Renaissance: AI-Driven Commerce and Consumer Intelligence</h4>
+                            <p class="book-description">Personalization engines, behavioral analytics, autonomous retail, omnichannel evolution</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('education')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Educational Intelligence: Learning in the Age of AI</h4>
+                            <p class="book-description">Adaptive learning, AI tutors, curriculum transformation, skill development for AI economy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="series-category scroll-reveal">
+                    <h3 class="category-title">Economic & Societal Framework Volumes</h3>
+                    <div class="books-grid">
+                        <div class="book-item" onclick="openBookModal('cognitive')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">The Cognitive Economy: How AI Reframes Value Creation and Economic Models</h4>
+                            <p class="book-description">New economic paradigms, AI-driven productivity, wealth distribution, economic policy</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('markets')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Financial Markets Reimagined: Capital, Investment, and Wealth in the AI Era</h4>
+                            <p class="book-description">Investment strategies, risk assessment, market dynamics, regulatory evolution</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('governance')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Governance in the Age of Intelligence: Policy, Regulation, and Society</h4>
+                            <p class="book-description">AI governance frameworks, ethical guidelines, international cooperation, social impact</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="series-category scroll-reveal">
+                    <h3 class="category-title">Strategic Leadership Volumes</h3>
+                    <div class="books-grid">
+                        <div class="book-item" onclick="openBookModal('leadership')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">Leading the Intelligence Revolution: Strategic Decision-Making for the AI Era</h4>
+                            <p class="book-description">Executive leadership, organizational transformation, strategic planning, change management</p>
+                        </div>
+                        <div class="book-item" onclick="openBookModal('agentic')">
+                            <div class="book-expand-icon">📖</div>
+                            <h4 class="book-title">The Agentic Enterprise: Building Organizations for Autonomous Intelligence</h4>
+                            <p class="book-description">Future of work, human-AI collaboration, organizational design, cultural transformation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Summary Modals -->
+    <div class="book-modal" id="bookModal">
+        <div class="book-modal-content">
+            <div class="book-modal-header">
+                <button class="book-modal-close" onclick="closeBookModal()">&times;</button>
+                <h3 class="book-modal-title" id="modalTitle"></h3>
+                <p class="book-modal-category" id="modalCategory"></p>
+            </div>
+            <div class="book-modal-body" id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Strategic Partnerships</h2>
+                <p class="section-subtitle">Connect with The Intelligence Collective for strategic partnerships and collaboration opportunities</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">🎯</div>
+                    <h3>Executive Leadership</h3>
+                    <div class="contact-email">clarence@glbkiros.com</div>
+                    <p>Direct access to executive leadership for strategic partnerships, board-level discussions, and ecosystem-wide collaboration opportunities.</p>
+                </div>
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">🔬</div>
+                    <h3>Strategic Intelligence</h3>
+                    <div class="contact-email">inquiries@eliaskairoschen.com</div>
+                    <p>Strategic insights, advisory services, and thought leadership on AI transformation, organizational adaptation, and intelligent enterprise development.</p>
+                </div>
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">🚀</div>
+                    <h3>Investment Opportunities</h3>
+                    <div class="contact-email">investments@glbkiros.com</div>
+                    <p>Investment opportunities across our intelligence ecosystem, strategic partnerships, and collaboration with our portfolio of intelligence platforms.</p>
+                </div>
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">💼</div>
+                    <h3>Innovation Partnerships</h3>
+                    <div class="contact-email">innovation@glbkiros.com</div>
+                    <p>Research collaborations, technology partnerships, and innovation initiatives spanning our intelligence platforms and academic partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-quote">
+                        "The Intelligence Collective represents the convergence of strategic vision and execution excellence, creating an ecosystem where breakthrough technologies serve human flourishing while building sustainable competitive advantages."
+                    </div>
+                    <div class="footer-author">— Dr. Clarence Tan, Founder & CEO | Elias Kairos Chen, Chief Intelligence Architect</div>
+                </div>
+                <div class="footer-section">
+                    <h4>The Collective</h4>
+                    <ul>
+                        <li><a href="#leadership">Dual Leadership</a></li>
+                        <li><a href="#about">Intelligence Ecosystem</a></li>
+                        <li><a href="#books">Publications</a></li>
+                        <li><a href="#contact">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">EliasKairos-Chen.com</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Speaking Engagements</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GLB KIROS GROUP - The Intelligence Collective. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            }, 2500);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 40px rgba(0,0,0,0.12)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive Elements
+        document.addEventListener('mousemove', (e) => {
+            const circles = document.querySelectorAll('.floating-circle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            circles.forEach((circle, index) => {
+                const speed = (index + 1) * 50;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                
+                circle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // Dynamic Stats Animation
+        const animateStats = () => {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent.replace(/[^\d]/g, ''));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    if (stat.textContent.includes('$')) {
+                        stat.textContent = `$${Math.floor(current)}M+`;
+                    } else if (stat.textContent.includes('%')) {
+                        stat.textContent = `${Math.floor(current)}%+`;
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 50);
+            });
+        };
+
+        // Trigger stats animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 1000);
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        heroObserver.observe(document.querySelector('.hero'));
+
+        // Book Modal Functionality
+        const bookData = {
+            healthcare: {
+                title: "The AI Healthcare Revolution: Reframing Medicine for the Cognitive Era",
+                category: "Core Industry Transformation Volume",
+                summary: "This volume explores how artificial intelligence is fundamentally transforming healthcare delivery, moving from reactive treatment models to predictive, personalized, and preventive care systems.",
+                themes: [
+                    "<strong>Clinical AI Integration:</strong> Implementation of AI-powered diagnostic tools that match or exceed human expert performance in medical imaging, pathology, and clinical decision-making",
+                    "<strong>Precision Medicine:</strong> AI-driven genomic analysis enabling personalized treatment plans based on individual genetic profiles, lifestyle factors, and real-time health data",
+                    "<strong>Predictive Analytics:</strong> Early disease detection systems that identify health risks years before clinical manifestation, enabling preventive interventions",
+                    "<strong>Regulatory Evolution:</strong> Framework development for AI medical device approval, safety monitoring, and post-market surveillance",
+                    "<strong>Healthcare Democratization:</strong> AI tools expanding access to specialist-level care in underserved regions through telemedicine and automated diagnostics"
+                ],
+                impact: "The AI healthcare market is projected to reach $696 billion by 2034, with 45% improvement in patient outcomes through personalized medicine."
+            },
+            finance: {
+                title: "Financial Intelligence: How AI is Rewriting Banking, Investment, and Economic Systems",
+                category: "Core Industry Transformation Volume",
+                summary: "An in-depth analysis of AI's revolutionary impact on financial services, from algorithmic trading and risk management to the emergence of Central Bank Digital Currencies (CBDCs) and the transformation of monetary policy.",
+                themes: [
+                    "<strong>Algorithmic Trading Evolution:</strong> Advanced AI models enabling millisecond decision-making, pattern recognition, and adaptive trading strategies that outperform traditional methods",
+                    "<strong>Risk Management Revolution:</strong> Machine learning systems providing superior credit scoring, fraud detection, and real-time risk assessment across diverse data sources",
+                    "<strong>CBDC and Digital Currency:</strong> The rise of programmable money with smart contracts, enabling dynamic monetary policy and cross-border payment efficiency",
+                    "<strong>Financial Inclusion:</strong> AI-powered lending platforms expanding credit access to underbanked populations through alternative data analysis",
+                    "<strong>Regulatory Technology:</strong> AI systems ensuring compliance, anti-money laundering, and financial crime prevention at unprecedented scale"
+                ],
+                impact: "63% of financial organizations are implementing AI across their value chains, with implications for traditional banking models and global financial stability."
+            },
+            manufacturing: {
+                title: "Manufacturing Minds: The Industrial AI Transformation",
+                category: "Core Industry Transformation Volume",
+                summary: "This volume examines the comprehensive integration of AI across manufacturing operations, supply chains, and production systems, defining the parameters of Industry 4.0 and the emergence of cognitive factories.",
+                themes: [
+                    "<strong>Smart Factory Ecosystems:</strong> Interconnected AI systems managing production lines, quality control, and resource optimization in real-time",
+                    "<strong>Predictive Maintenance:</strong> AI-powered systems preventing equipment failures, optimizing maintenance schedules, and reducing operational downtime",
+                    "<strong>Supply Chain Intelligence:</strong> End-to-end visibility and optimization using AI for demand forecasting, logistics, and inventory management",
+                    "<strong>Quality Assurance Revolution:</strong> Computer vision and machine learning systems detecting defects and ensuring product quality at speeds impossible for human inspection",
+                    "<strong>Sustainable Manufacturing:</strong> AI optimization of energy consumption, waste reduction, and environmental impact across manufacturing processes"
+                ],
+                impact: "Addresses the transformation of global manufacturing competitiveness, workforce implications, and the reshaping of international trade through AI-enabled production capabilities."
+            },
+            retail: {
+                title: "Retail Renaissance: AI-Driven Commerce and Consumer Intelligence",
+                category: "Core Industry Transformation Volume",
+                summary: "A comprehensive exploration of how AI is revolutionizing retail through personalization engines, behavioral analytics, and the creation of intelligent commerce ecosystems that anticipate and fulfill consumer needs.",
+                themes: [
+                    "<strong>Personalization at Scale:</strong> AI algorithms creating individualized shopping experiences across millions of customers simultaneously",
+                    "<strong>Behavioral Analytics:</strong> Deep learning systems analyzing consumer patterns, preferences, and purchasing triggers to optimize marketing and inventory",
+                    "<strong>Autonomous Retail:</strong> Cashierless stores, automated inventory management, and AI-powered supply chain optimization",
+                    "<strong>Omnichannel Integration:</strong> Seamless customer experiences across physical and digital touchpoints powered by unified AI platforms",
+                    "<strong>Demand Forecasting:</strong> Predictive models optimizing inventory, pricing, and promotional strategies across seasonal and market variations"
+                ],
+                impact: "Examines the balance between personalization benefits and privacy concerns, addressing the ethical implications of behavioral manipulation and data usage in commerce."
+            },
+            education: {
+                title: "Educational Intelligence: Learning in the Age of AI",
+                category: "Core Industry Transformation Volume",
+                summary: "This volume explores the fundamental transformation of education through AI-powered adaptive learning, personalized curriculum development, and the emergence of AI tutoring systems that revolutionize knowledge acquisition and skill development.",
+                themes: [
+                    "<strong>Adaptive Learning Platforms:</strong> AI systems that adjust content difficulty, pace, and teaching methods in real-time based on individual student performance and learning styles",
+                    "<strong>AI Teaching Assistants:</strong> Virtual tutors providing 24/7 support, immediate feedback, and personalized guidance across diverse subjects",
+                    "<strong>Curriculum Intelligence:</strong> AI-driven analysis of job market trends and skill demands to dynamically update educational content and career pathways",
+                    "<strong>Assessment Revolution:</strong> Continuous evaluation systems that measure understanding through multiple modalities rather than traditional testing",
+                    "<strong>Educational Equity:</strong> AI tools democratizing access to high-quality education regardless of geographic location or socioeconomic status"
+                ],
+                impact: "Addresses the critical challenge of preparing students for an AI-integrated economy while developing uniquely human skills that complement artificial intelligence."
+            },
+            cognitive: {
+                title: "The Cognitive Economy: How AI Reframes Value Creation and Economic Models",
+                category: "Economic & Societal Framework Volume",
+                summary: "A fundamental reexamination of economic principles in an AI-driven world, exploring new models of value creation, productivity measurement, and wealth distribution in the cognitive economy.",
+                themes: [
+                    "<strong>Value Creation Paradigms:</strong> How AI systems create economic value through data processing, pattern recognition, and automated decision-making",
+                    "<strong>Productivity Redefinition:</strong> New metrics for measuring productivity in knowledge work and cognitive tasks enhanced by AI",
+                    "<strong>Labor Market Transformation:</strong> The emergence of human-AI collaboration models and the evolution of work roles in the cognitive economy",
+                    "<strong>Network Effects:</strong> How AI platforms create exponential value through data network effects and algorithmic improvements",
+                    "<strong>Economic Policy Adaptation:</strong> Monetary and fiscal policy frameworks adapted for AI-driven economic dynamics"
+                ],
+                impact: "Examines income inequality, universal basic income considerations, and the need for economic safety nets in a rapidly transforming job market."
+            },
+            markets: {
+                title: "Financial Markets Reimagined: Capital, Investment, and Wealth in the AI Era",
+                category: "Economic & Societal Framework Volume",
+                summary: "An analysis of how AI is reshaping capital markets, investment strategies, and wealth management, creating new asset classes and fundamentally altering risk assessment and portfolio optimization.",
+                themes: [
+                    "<strong>Algorithmic Investment Strategies:</strong> AI-powered hedge funds, robo-advisors, and quantitative trading systems that outperform traditional investment approaches",
+                    "<strong>Risk Assessment Evolution:</strong> Machine learning models providing superior risk analysis through alternative data sources and real-time market monitoring",
+                    "<strong>Market Structure Changes:</strong> The impact of AI trading on market volatility, liquidity, and price discovery mechanisms",
+                    "<strong>Wealth Management Democratization:</strong> AI-powered financial advice making sophisticated investment strategies accessible to retail investors",
+                    "<strong>Regulatory Adaptation:</strong> Financial regulations evolving to address AI-driven market manipulation, systemic risks, and algorithmic accountability"
+                ],
+                impact: "Explores the emergence of AI-as-an-asset-class and the valuation challenges of AI-driven companies in public markets."
+            },
+            governance: {
+                title: "Governance in the Age of Intelligence: Policy, Regulation, and Society",
+                category: "Economic & Societal Framework Volume",
+                summary: "This volume addresses the critical challenge of governing AI development and deployment, exploring regulatory frameworks, ethical guidelines, and international cooperation mechanisms needed for responsible AI advancement.",
+                themes: [
+                    "<strong>Regulatory Frameworks:</strong> Development of adaptive regulatory systems that can keep pace with rapid AI advancement while ensuring safety and ethics",
+                    "<strong>International Cooperation:</strong> Global governance mechanisms for AI safety, standards harmonization, and preventing an AI arms race",
+                    "<strong>Ethical AI Development:</strong> Frameworks ensuring AI systems are developed and deployed in alignment with human values and societal benefit",
+                    "<strong>Privacy and Surveillance:</strong> Balancing AI capabilities with fundamental rights to privacy and protection from algorithmic surveillance",
+                    "<strong>Democratic Participation:</strong> Ensuring public input and democratic oversight in AI policy development and implementation"
+                ],
+                impact: "Examines how different cultural and political systems approach AI governance, with implications for international trade, security, and cooperation."
+            },
+            leadership: {
+                title: "Leading the Intelligence Revolution: Strategic Decision-Making for the AI Era",
+                category: "Strategic Leadership Volume",
+                summary: "A comprehensive guide for executive leaders navigating organizational transformation in the age of AI, covering strategic planning, change management, and leadership principles for the intelligent enterprise.",
+                themes: [
+                    "<strong>Strategic AI Integration:</strong> Frameworks for incorporating AI into business strategy, competitive positioning, and long-term planning",
+                    "<strong>Change Management:</strong> Leading organizational transformation as AI reshapes business processes, job roles, and company culture",
+                    "<strong>Decision-Making Evolution:</strong> How AI augments executive decision-making while maintaining human judgment and accountability",
+                    "<strong>Talent Development:</strong> Building AI-literate leadership teams and developing workforce capabilities for the AI era",
+                    "<strong>Stakeholder Management:</strong> Communicating AI initiatives to boards, investors, employees, and customers while managing expectations and concerns"
+                ],
+                impact: "Develops new leadership models that combine traditional business acumen with AI fluency and ethical technology stewardship."
+            },
+            agentic: {
+                title: "The Agentic Enterprise: Building Organizations for Autonomous Intelligence",
+                category: "Strategic Leadership Volume",
+                summary: "This volume explores the organizational design principles needed for enterprises that integrate autonomous AI agents, examining the future of human-AI collaboration and the emergence of agentic business models.",
+                themes: [
+                    "<strong>Organizational Architecture:</strong> Designing company structures that optimize human-AI collaboration and autonomous agent deployment",
+                    "<strong>Workflow Integration:</strong> Seamlessly incorporating AI agents into business processes while maintaining human oversight and control",
+                    "<strong>Performance Management:</strong> New metrics and management approaches for evaluating human-AI team performance",
+                    "<strong>Cultural Transformation:</strong> Building organizational cultures that embrace AI collaboration while preserving human creativity and judgment",
+                    "<strong>Governance Models:</strong> Decision-making frameworks that appropriately delegate authority to AI systems while maintaining accountability"
+                ],
+                impact: "Envisions organizational models where AI agents handle routine operations while humans focus on strategy, creativity, and complex problem-solving, creating new forms of competitive advantage."
+            }
+        };
+
+        function openBookModal(bookId) {
+            const book = bookData[bookId];
+            if (!book) return;
+
+            document.getElementById('modalTitle').textContent = book.title;
+            document.getElementById('modalCategory').textContent = book.category;
+            
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="book-summary-section">
+                    <h4>Executive Summary</h4>
+                    <p>${book.summary}</p>
+                </div>
+                
+                <div class="book-summary-section">
+                    <h4>Key Themes</h4>
+                    <ul class="book-themes-list">
+                        ${book.themes.map(theme => `<li>${theme}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="book-impact-stats">
+                    <h5>Market Impact</h5>
+                    <p>${book.impact}</p>
+                </div>
+                
+                <div class="book-summary-section">
+                    <h4>Target Audience</h4>
+                    <p>C-suite executives, government policymakers, academic researchers, AI practitioners, investment professionals, and consultants guiding AI transformation across industries.</p>
+                </div>
+            `;
+            
+            document.getElementById('bookModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookModal() {
+            document.getElementById('bookModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bookModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookModal();
+            }
+        });
+    </script>
+</body>
+</html>
